@@ -11,4 +11,6 @@ Staged állapot    -  Olyan fájlok, amelyeket már hozzáadtál a staging area-
 Committed         -  A változtatások elmentésre kerültek a helyi repository-ba egy commit formájában
 
 
+Branch            -  A Git branch egy független fejlesztési vonal egy Git repository-n belül. Segítségével párhuzamosan dolgozhatsz különböző funkciókon anélkül, hogy az alap (pl. main vagy master) ágat módosítanád.
+
 """
