@@ -1,0 +1,21 @@
+https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
+
+A kaggle formula 1 adatait fogjuk feldolgozni.
+A feldolgozás 2 lépcsőből áll:
+
+1. Az adatokat betöltjük relációs adatbázisba
+2. Különböző lekérdezéseket fogunk készíteni az adattal kapcsolatban
+
+Project setup:
+git-et használnuk a kód verziózására
+moduláris fejlesztést fogunk eszközölni
+
+Riportok egy részét natív SQL-ben
+Egy részét pedig Pandas segítségével fogjuk elkészíteni
+
+-- -----------------------------------------------------------------------
+
+Az adatok betöltését meg fogjuk csinálni MongoDB-vel is
+
+Docker-t, mint megoldást: az adatbázisokat fogjuk dockerben futtatni
+                          megnézzük, hogyan tudunk custom Dockerfile-t készíteni
