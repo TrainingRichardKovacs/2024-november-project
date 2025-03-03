@@ -205,3 +205,5 @@ class Status(Base):
 
     statusid = Column(Integer, primary_key=True)
     status = Column(Text)
+
+

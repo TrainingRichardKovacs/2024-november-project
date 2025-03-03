@@ -109,6 +109,7 @@ class LapTime(Base):
     __tablename__ = 'lap_times'
     __table_args__ = {'schema': 'project'}
 
+    lap_time_id = Column(Integer, primary_key=True)
     raceid = Column(Integer, ForeignKey('project.races.raceid'))
     driverid = Column(Integer, ForeignKey('project.drivers.driverid'))
     lap = Column(Integer)
@@ -121,6 +122,7 @@ class PitStop(Base):
     __tablename__ = 'pit_stops'
     __table_args__ = {'schema': 'project'}
 
+    pitstop_id = Column(Integer, primary_key=True)
     raceid = Column(Integer, ForeignKey('project.races.raceid'))
     driverid = Column(Integer, ForeignKey('project.drivers.driverid'))
     stop = Column(Integer)
@@ -173,6 +175,7 @@ class Season(Base):
     __tablename__ = 'seasons'
     __table_args__ = {'schema': 'project'}
 
+    season_id = Column(Integer, primary_key=True)
     year = Column(Integer)
     url = Column(Text)
 
@@ -205,3 +208,21 @@ class Status(Base):
 
     statusid = Column(Integer, primary_key=True)
     status = Column(Text)
+
+from collections import OrderedDict
+
+file_orm_mapping = OrderedDict([("circuits.csv",Circuit),
+                ("races.csv" , Race),
+                ("drivers.csv" , Driver),
+                ("constructors.csv" , Constructor),
+                ("status.csv" , Status),
+                ("seasons.csv" , Season),
+                ("constructor_results.csv",ConstructorResult),
+                ("constructor_standings.csv" , ConstructorStanding),
+                ("driver_standings.csv" , DriverStanding),
+                ("lap_times.csv" , LapTime),
+                ("pit_stops.csv" , PitStop),
+                ("qualifying.csv" , Qualifying),
+                ("results.csv" , Result),
+                ("sprint_results.csv" , SprintResult)
+                    ])
