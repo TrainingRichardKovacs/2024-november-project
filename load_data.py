@@ -1,9 +1,3 @@
-from data_loader import *
-from data_loader.db_service import *
-from data_loader.file_service import *
-from data_loader.log_service import *
-from data_loader.models import *
-from data_loader.core import *
 
 
 """
@@ -17,3 +11,17 @@ A modulok felhasználásával az alábbi feladatokat kellene itt elvégeznem
 5. minden lépést, ami fontos: sikeres futás, hiba stb. adatbázisba be kell logolni
 
 """
+
+from data_loader import DBHandler, file_orm_mapping, CSVHandler, CoreLoader
+
+def main():
+    folder_path = r"C:\WORK\Prooktatas\2024-november-project\data"
+    loader = CoreLoader(folder_path=folder_path,
+                        mapping=file_orm_mapping,
+                        file_handler=CSVHandler(),
+                        db_handler=DBHandler())
+    loader.run()
+
+
+if __name__ == '__main__':
+    main()

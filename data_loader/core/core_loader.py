@@ -18,7 +18,7 @@ class CoreLoader(CoreBase):
         orm_objects = []
 
         orm_class = self.mapping[file_name]
-        file_path = f"{folder_path}/{file_name}"
+        file_path = f"{self.folder_path}/{file_name}"
         file_data = self.file_handler.get_data_from_csv(file_path)
         cols = [item.lower() for item in file_data.columns]
         file_data.columns = cols            
