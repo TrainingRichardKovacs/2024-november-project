@@ -1,9 +1,12 @@
+import os
 import pandas as pd
 
 class CSVHandler:
     
     @staticmethod
     def get_data_from_csv(csv_path):
+        if not os.path.exists(csv_path):
+            raise Exception(f'Missing file at path: {csv_path}')
         return pd.read_csv(csv_path)
 
 

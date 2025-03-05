@@ -35,9 +35,14 @@ class DBHandler:
             session.close()
 
     def bulk_data_loader(self, data: list):
-        with self.db_session as session:
-            session.add_all(data)
-            session.commit()
+        try:
+            with self.db_session as session:
+                session.add_all(data)
+                session.commit()
+        except Exception as err:
+            # ide kellene egy logolás
+            raise err
+
 
     def initialize_tables_from_orm(self, base):
         base.metadata.create_all(self.engine)

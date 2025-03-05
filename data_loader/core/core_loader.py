@@ -30,12 +30,16 @@ class CoreLoader(CoreBase):
     def run(self):
         files = self.list_files_from_folder()
 
-        for file_name, _ in self.mapping.items():
-            if file_name not in files:
-                raise Exception(f"Missing file: {file_name}")
-            
-            orm_objects = self.generate_orm_object_from_data(file_name)
-            self.db_handler.bulk_data_loader(orm_objects)
+        try:
+            for file_name, _ in self.mapping.items():
+                if file_name not in files:
+                    raise Exception(f"Missing file: {file_name}")
+                
+                orm_objects = self.generate_orm_object_from_data(file_name)
+                self.db_handler.bulk_data_loader(orm_objects)
+
+        except Exception as e:
+            print(f"Hiba történt a feldolgozásnál, minden további feldolgozást leállítok: {e}")
 
 
 if __name__ == '__main__':
