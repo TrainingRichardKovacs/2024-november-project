@@ -39,17 +39,13 @@ class DBHandler:
             session.add_all(data)
             session.commit()
 
+    def initialize_tables_from_orm(self, base):
+        base.metadata.create_all(self.engine)
+        
+
 
 if __name__ == '__main__':
-    import sys 
-    # sys.path.append(r"C:\WORK\Prooktatas\2024-november-project")
-    from data_loader.models.data_model import Status
+    from data_loader.models.data_models import Base
     db = DBHandler()
 
-    t1 = Status(statusid=1, status="Finished")
-    t2 = Status(statusid=2, status="Disqualified")
-    t3 = Status(statusid=3, status="Accident")
-    
-    objects = [t1, t2, t3]
-
-    db.bulk_data_loader(objects)
+    db.initialize_tables_from_orm(Base)
