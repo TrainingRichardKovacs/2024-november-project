@@ -17,6 +17,9 @@ class DBHandler:
 
     """
     kelleni fog egy olyan megoldás, ahol a self.engine által létrehozott kapcsolatot megszűntetem
+    
+    self.engine.dispose()
+    
     """
 
     def session_generator(self):
@@ -40,17 +43,11 @@ class DBHandler:
                 session.add_all(data)
                 session.commit()
         except Exception as err:
-            # ide kellene egy logolás
             raise err
-
 
     def initialize_tables_from_orm(self, base):
         base.metadata.create_all(self.engine)
         
-
-
-if __name__ == '__main__':
-    from data_loader.models.data_models import Base
-    db = DBHandler()
-
-    db.initialize_tables_from_orm(Base)
+    def __del__(self):
+        print("Lefutott az exit")
+        self.engine.dispose()

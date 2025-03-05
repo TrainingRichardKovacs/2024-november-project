@@ -1,5 +1,3 @@
-
-
 """
 A modulok felhasználásával az alábbi feladatokat kellene itt elvégeznem
 
@@ -12,16 +10,17 @@ A modulok felhasználásával az alábbi feladatokat kellene itt elvégeznem
 
 """
 
-from data_loader import DBHandler, file_orm_mapping, CSVHandler, CoreLoader
+from data_loader import DBHandler, file_orm_mapping, CSVHandler, CoreLoader, LoaderLog, DBLog
+from data_loader import DBLog
 
 def main():
     folder_path = r"C:\WORK\Prooktatas\2024-november-project\data"
     loader = CoreLoader(folder_path=folder_path,
                         mapping=file_orm_mapping,
                         file_handler=CSVHandler(),
-                        db_handler=DBHandler())
+                        db_handler=DBHandler(),
+                        log_handler=DBLog(LoaderLog))
     loader.run()
-
 
 if __name__ == '__main__':
     main()
