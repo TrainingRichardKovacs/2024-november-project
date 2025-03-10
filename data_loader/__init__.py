@@ -7,6 +7,3 @@ from .models import (Base, file_orm_mapping, Circuit,
                           SprintResult, Result)
 from .core import CoreLoader, CoreBase
 from .log_service import DBLog, LoaderLog
-
-
-# from .db_service.db_handler import DBHandler
