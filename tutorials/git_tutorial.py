@@ -12,5 +12,9 @@ Committed         -  A változtatások elmentésre kerültek a helyi repository-
 
 
 Branch            -  A Git branch egy független fejlesztési vonal egy Git repository-n belül. Segítségével párhuzamosan dolgozhatsz különböző funkciókon anélkül, hogy az alap (pl. main vagy master) ágat módosítanád.
+------------------------------------------------
+README.md         - A fejlesztés valamilyen leírása, ez lehet dokumentáció, linkek stb.
+.gitignore        - lokál fejlesztésnél amit a gitignoreba beleteszünk, azokat a fileokat nem fogjuk felküldeni a git-re
+                    nem fogjuk verziókezelni
 
 """
