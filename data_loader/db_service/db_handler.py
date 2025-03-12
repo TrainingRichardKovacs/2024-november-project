@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 class DBHandler:
 
     def __init__(self):
-        self.engine = create_engine('postgresql://postgres:postgres@localhost:5432/postgres')
+        self.engine = create_engine('postgresql://postgres:postgres@mypostgres:5432/postgres')
         self.session = sessionmaker(bind=self.engine)
         self.db_session = self.session()
 

@@ -14,7 +14,7 @@ from data_loader import DBHandler, file_orm_mapping, CSVHandler, CoreLoader, Loa
 from data_loader import DBLog
 
 def main():
-    folder_path = r"C:\WORK\Prooktatas\2024-november-project\data"
+    folder_path = r"./data"
     loader = CoreLoader(folder_path=folder_path,
                         mapping=file_orm_mapping,
                         file_handler=CSVHandler(),
